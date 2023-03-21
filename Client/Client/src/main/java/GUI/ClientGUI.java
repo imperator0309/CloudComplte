@@ -41,7 +41,7 @@ public class ClientGUI extends JFrame {
         //upload tab
         labelHost = new JLabel("Host:");
         textFieldHost = new JTextField();
-        getTextFieldHost().setText("172.24.4.243");
+        getTextFieldHost().setText("172.24.4.97");
         labelPort = new JLabel("Port:");
         textFieldPort = new JTextField();
         textFieldPort.setText("8884");
