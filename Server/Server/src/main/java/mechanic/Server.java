@@ -146,8 +146,6 @@ public class Server extends Thread {
         Message message = null;
         BufferedInputStream bis = null;
         try {
-            System.out.println(source);
-            System.out.println(fileName);
             File sourceFile = new File(source + fileName);
             bis = new BufferedInputStream(new FileInputStream(sourceFile));
             message = new Message();
