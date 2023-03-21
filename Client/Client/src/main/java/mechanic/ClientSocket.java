@@ -235,6 +235,7 @@ public class ClientSocket {
     public void connectServer() {
         try {
             client = new Socket(host, port);
+            client.setReuseAddress(true);
             textAreaLog.append(("connect to server.\n"));
         } catch (IOException ex) {
             ex.printStackTrace();

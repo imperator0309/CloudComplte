@@ -91,12 +91,15 @@ public class ClientController implements ActionListener {
                 ClientSocket clientSocket = new ClientSocket(host, port, clientGUI.getCurrentUser(),
                         clientGUI.getTextAreaResult());
                 clientSocket.connectServer();
-                boolean sucess = clientSocket.login(clientGUI.getUsernameField().getText(), clientGUI.getPasswordField().getText());
+                boolean sucess = clientSocket.login(clientGUI.getUsernameField().getText(),
+                        clientGUI.getPasswordField().getText());
+
                 if (sucess) {
                     clientGUI.login();
                 } else {
                     JOptionPane.showMessageDialog(clientGUI, "username or password incorrect!");
                 }
+                clientSocket.closeSocket();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(clientGUI, "Cannot login!");
             }
