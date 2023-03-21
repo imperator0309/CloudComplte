@@ -52,16 +52,18 @@ public class ClientController implements ActionListener {
                 if (clientGUI.getFileList().isSelectionEmpty()) {
                     JOptionPane.showMessageDialog(clientGUI, "Please choose a file");
                 } else {
-                    host = clientGUI.getTextFieldHost().getText();
-                    port = Integer.parseInt(clientGUI.getTextFieldPort().getText());
-                    String destinationDirectory = clientGUI.folderChooser() + "//";
-                    String fileName = clientGUI.getFileList().getSelectedValue();
+                    String destinationDirectory = clientGUI.folderChooser() ;
+                    if (destinationDirectory != null) {
+                        host = clientGUI.getTextFieldHost().getText();
+                        port = Integer.parseInt(clientGUI.getTextFieldPort().getText());
+                        String fileName = clientGUI.getFileList().getSelectedValue();
 
-                    ClientSocket clientSocket = new ClientSocket(host, port, clientGUI.getCurrentUser(),
-                            clientGUI.getTextAreaResult());
-                    clientSocket.connectServer();
-                    clientSocket.receiveFile(fileName, destinationDirectory);
-                    clientSocket.closeSocket();
+                        ClientSocket clientSocket = new ClientSocket(host, port, clientGUI.getCurrentUser(),
+                                clientGUI.getTextAreaResult());
+                        clientSocket.connectServer();
+                        clientSocket.receiveFile(fileName, destinationDirectory);
+                        clientSocket.closeSocket();
+                    }
                 }
             }
         }

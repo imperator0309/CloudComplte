@@ -145,11 +145,13 @@ public class ClientGUI extends JFrame {
 
     public void chooseFile() {
         final JFileChooser fileChooser = new JFileChooser();
-        fileChooser.showOpenDialog(this);
+        int returnVal = fileChooser.showOpenDialog(this);
 
         try {
-            if (fileChooser.getSelectedFile() != null) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 textFieldFilePath.setText(fileChooser.getSelectedFile().getPath());
+            } else {
+                textFieldFilePath.setText("");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -160,10 +162,11 @@ public class ClientGUI extends JFrame {
         final JFileChooser folderChooser = new JFileChooser();
         folderChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         String path = null;
-        folderChooser.showOpenDialog(this);
+        int returnVal = folderChooser.showOpenDialog(this);
         try {
-            if (folderChooser.getSelectedFiles() != null) {
-                path = folderChooser.getCurrentDirectory().getPath();
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                path = folderChooser.getCurrentDirectory().getPath() + "/"
+                + folderChooser.getSelectedFile().getPath() + "/";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
