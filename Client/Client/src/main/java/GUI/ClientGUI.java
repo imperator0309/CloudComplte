@@ -165,8 +165,7 @@ public class ClientGUI extends JFrame {
         int returnVal = folderChooser.showOpenDialog(this);
         try {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                path = folderChooser.getCurrentDirectory().getPath() + "/"
-                + folderChooser.getSelectedFile().getPath() + "/";
+                path = folderChooser.getSelectedFile().getPath() + "/";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
