@@ -85,7 +85,7 @@ public class ClientController implements ActionListener {
 
         if (actionEvent.getActionCommand().equals(clientGUI.getBtnLogin().getText())) {
             try {
-                host = "172.24.4.243";
+                host = "172.24.4.97";
                 port = 8884;
 
                 ClientSocket clientSocket = new ClientSocket(host, port, clientGUI.getCurrentUser(),
